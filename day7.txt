@@ -1,0 +1,43 @@
+create table sample(ID int,text varchar(200));
+
+insert into sample(Id,text) values(1,'anjali');
+
+rollback
+
+select * from sample;
+
+insert into sample(Id,text) values(2,'preethi')
+
+savepoint ASV;
+
+insert into sample(Id,text) values(3,'varma');
+insert into sample(Id,text) values(4,'prajeeth');
+
+create table details(name varchar(200),salary int);
+insert into details(name,salary) values('abc',1000);
+insert into details(name,salary) values('bcd',1000);
+insert into details(name,salary) values('efg',4000);
+insert into details(name,salary) values('ghi',5000);
+select name from details
+where salary between 1000 and 5000;
+
+create table sales(salesman_id int,name varchar(200),city varchar(200),commission int);
+insert into sales(salesman_id ,name ,city ,commission) values(5001,JamesHoog,NewYork,0.15);
+insert into sales(salesman_id ,name ,city ,commission) values(5002,NailKent,Paris,0.13);
+insert into sales(salesman_id ,name ,city ,commission) values(5003,PitAlex,London,0.11);
+insert into sales(salesman_id ,name ,city ,commission) values(5004,McLyon,Paris,0.14);
+insert into sales(salesman_id ,name ,city ,commission) values(5005,PaulAdam,Rome,0.13);
+insert into sales(salesman_id ,name ,city ,commission) values(5006,LausenHen,SanJose,0.12);
+select name,city from sales
+where city='Paris'
+
+create table nobleprize(year int,subject varchar(200),winner varchar(200),country varchar(200),category varchar(200));
+insert into table nobleprize(year,subject,winner,country,category) values(1970,Physics,Hannes Alfven,Sweden,Scentist);
+insert into table nobleprize(year,subject,winner,country,category) values(1970,Physics,Louis Neel,france,Scentist);
+insert into table nobleprize(year,subject,winner,country,category) values(1970,Chemistry,Luis Federico Leloir,France,Sceintist);
+insert into table nobleprize(year,subject,winner,country,category) values(1970,Physiology,Ulf von Euler,Sweden,scentist);
+insert into table nobleprize(year,subject,winner,country,category) values(1970,literature,Alkensdar,Russia,Linguist);
+select year,subject,country from nobleprize
+where subject='chemistry' between 1965 and 1970
+select subject,winner,country,category,year from nobleprize
+order by subject
